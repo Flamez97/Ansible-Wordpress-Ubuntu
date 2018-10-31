@@ -19,11 +19,11 @@
 
 - name: Deletes anonymous MySQL server user for localhost
   become: yes
-  mysql_user: user="" state="absent" login_password="root" login_user="root"
+  mysql_user: user="" state="absent" login_password="" login_user="root"
 
 - name: Secures the MySQL root user
   become: yes
-  mysql_user: user="root" password="{{ MySQL_root_pass }}" host="{{ item }}" login_password="root" login_user="root"
+  mysql_user: user="root" password="{{ MySQL_root_pass }}" host="{{ item }}" login_password="" login_user="root"
   with_items:
     - 127.0.0.1
     - localhost
